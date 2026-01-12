@@ -7,7 +7,7 @@ WEBCORE TEAMMATES
 - Noella Uwera
 - Maellene Mpinganzima
 - 
-## Architecture diagram link address 
+## Architecture diagram link address:
 https://github.com/Maellene/momo_project/blob/main/webcore%20momo%20project.png
 
 ## Scrum Board
