@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for each category',
     category_name VARCHAR(50) NOT NULL COMMENT 'Name of the transaction category',
-    category_type VARCHAR(20) NOT NULL COMMENT 'Type of category: Income/Expense'
+    category_type  ENUM('Income', 'Expense') NOT NULL COMMENT 'Type of category: Income/Expense'
 );
 
 -- Table 3: transactions
@@ -33,7 +33,7 @@ CREATE TABLE user_transactions (
     id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for user-transaction mapping',
     user_id INT COMMENT 'References user',
     transaction_id INT COMMENT 'References transaction',
-    role VARCHAR(20) COMMENT 'Role in transaction: sender/receiver',
+    role ENUM('sender', 'receiver') NOT NULL COMMENT 'Role in transaction: sender/receiver',
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
 );
@@ -44,6 +44,41 @@ CREATE TABLE system_logs (
     log_type VARCHAR(50) COMMENT 'Type of log',
     message TEXT COMMENT 'Log message',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Log creation timestamp'
+);
+
+CREATE TABLE fee_types (
+    fee_type_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for fee type',
+    fee_name VARCHAR(50) NOT NULL COMMENT 'Name of the fee',
+    fee_code VARCHAR(20) NOT NULL UNIQUE COMMENT 'Short code for fee type',
+    calculation_method ENUM('fixed', 'percentage', 'tiered') DEFAULT 'fixed' COMMENT 'How fee is calculated',
+    fee_value DECIMAL(10,2) NOT NULL COMMENT 'Base fee value or percentage',
+    min_fee DECIMAL(10,2) NULL COMMENT 'Minimum fee amount',
+    max_fee DECIMAL(10,2) NULL COMMENT 'Maximum fee amount',
+    is_active BOOLEAN DEFAULT TRUE COMMENT 'Whether fee type is active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Record creation time',
+
+     CONSTRAINT chk_fee_value_positive CHECK (fee_value >= 0),
+    CONSTRAINT chk_min_max_fee CHECK (
+        min_fee IS NULL OR 
+        max_fee IS NULL OR 
+        min_fee <= max_fee
+    )
+);
+
+CREATE TABLE transaction_fees (
+    transaction_fee_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for transaction-fee record',
+    transaction_id INT NOT NULL COMMENT 'References transaction',
+    fee_type_id INT NOT NULL COMMENT 'References fee type',
+    fee_amount DECIMAL(10,2) NOT NULL COMMENT 'Actual fee amount charged',
+    applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'When fee was applied',
+    
+    FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id) 
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (fee_type_id) REFERENCES fee_types(fee_type_id) 
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+    
+    CONSTRAINT chk_fee_amount_positive CHECK (fee_amount >= 0),
+    UNIQUE KEY uk_transaction_fee_type (transaction_id, fee_type_id),
 );
 
 -- Add sample users 
