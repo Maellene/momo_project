@@ -1,38 +1,44 @@
 {
-  "user": {
-    "user_id": 1,
-    "phone_number": "+250788123456",
-    "full_name": "James Kundwa"
-  },
-
-  "transaction": {
+  "transactions": {
     "transaction_id": 76662021700,
+    "txn_code": "RCV",
     "amount": 2000,
-    "currency": "RWF",
-    "transaction_date": "2026-01-10 16:30:51",
     "message": "You have received money",
-    "category_id": 1
-  },
-
-  "complete_transaction": {
-    "transaction_id": 76662021700,
-    "amount": 2000,
-    "currency": "RWF",
     "transaction_date": "2026-01-10 16:30:51",
 
     "category": {
+      "category_id": 1,
       "category_name": "Received Money",
-      "category_type": "Income"
+      "category_type": "Income",
+      "description": "Incoming funds to wallet"
     },
 
-    "sender": {
-      "full_name": "James Kundwa",
-      "phone_number": "+250788123456"
-    },
+    "users": [
+      {
+        "user_id": 1,
+        "full_name": "James Kundwa",
+        "phone_number": "+250788123456",
+        "role": "sender"
+      },
+      {
+        "user_id": 2,
+        "full_name": "Account Owner",
+        "phone_number": "+25078XXXXXX",
+        "role": "receiver"
+      }
+    ],
 
-    "receiver": {
-      "full_name": "Account Owner",
-      "phone_number": "+25078XXXXXX"
+    "fees": [
+      {
+        "fee_type": "Transaction Fee",
+        "calculation_method": "FIXED",
+        "fee_amount": 0
+      }
+    ],
+
+    "system_log": {
+      "message": "Transaction processed successfully",
+      "date": "2026-01-10 16:30:52"
     }
   }
 }
