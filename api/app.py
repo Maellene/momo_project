@@ -6,68 +6,86 @@ app = FastAPI(title="MoMo SMS Serialization API")
 def test_database():
     return {
         "status": "ok",
-        "message": "Database schema ready for MoMo SMS processing",
-        "entities": ["users", "transactions", "categories", "system_logs"]
+        "tables": [
+            "users",
+            "transactions",
+            "categories",
+            "user_transactions",
+            "transaction_fees",
+            "fee_types",
+            "system_logs"
+        ]
     }
 
-@app.get("/api/schema/user")
-def user_schema():
+@app.get("/api/schema/users")
+def users_schema():
     return {
-        "id": "integer",
-        "name": "string",
+        "user_id": "integer",
         "phone_number": "string",
-        "created_at": "datetime"
+        "full_name": "string"
     }
 
-@app.get("/api/schema/category")
-def category_schema():
+@app.get("/api/schema/categories")
+def categories_schema():
     return {
         "category_id": "integer",
-        "name": "string",
+        "category_name": "string",
+        "category_type": "string",
         "description": "string"
     }
 
-@app.get("/api/schema/transaction")
-def transaction_schema():
+@app.get("/api/schema/transactions")
+def transactions_schema():
     return {
         "transaction_id": "integer",
+        "txn_code": "string",
         "amount": "decimal",
-        "currency": "string",
-        "transaction_type": "string",
-        "timestamp": "datetime",
-        "user": {
-            "user_id": "integer",
-            "name": "string",
-            "phone_number": "string"
-        },
-        "category": {
-            "category_id": "integer",
-            "name": "string"
-        }
+        "message": "string",
+        "transaction_date": "datetime",
+        "category_id": "integer"
     }
 
 
 
-@app.get("/api/example/transaction")
-def example_transaction():
+@app.get("/api/example/complete-transaction")
+def complete_transaction_example():
     return {
-        "transaction_id": 45821,
-        "amount": 15000.50,
-        "currency": "RWF",
-        "transaction_type": "PAYMENT",
-        "timestamp": "2026-01-20T14:32:10",
-        "user": {
-            "user_id": 12,
-            "name": "Alice Mukamana",
-            "phone_number": "0781234567"
-        },
+        "transaction_id": 76662021700,
+        "txn_code": "RCV",
+        "amount": 2000,
+        "message": "You have received money",
+        "transaction_date": "2026-01-10 16:30:51",
+
         "category": {
-            "category_id": 3,
-            "name": "Utilities"
+            "category_id": 1,
+            "category_name": "Received Money",
+            "category_type": "Income"
         },
+
+        "users": [
+            {
+                "user_id": 1,
+                "full_name": "James Kundwa",
+                "phone_number": "+250788123456",
+                "role": "sender"
+            },
+            {
+                "user_id": 2,
+                "full_name": "Account Owner",
+                "phone_number": "+25078XXXXXX",
+                "role": "receiver"
+            }
+        ],
+
+        "fees": [
+            {
+                "fee_type": "Transaction Fee",
+                "fee_amount": 0
+            }
+        ],
+
         "system_log": {
-            "status": "SUCCESS",
-            "processed_at": "2026-01-20T14:32:12",
-            "message": "Transaction processed successfully"
+            "message": "Transaction processed successfully",
+            "date": "2026-01-10 16:30:52"
         }
     }
