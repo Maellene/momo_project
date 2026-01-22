@@ -45,7 +45,7 @@ CREATE TABLE system_logs (
     message TEXT COMMENT 'Log message',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Log creation timestamp'
 );
-
+--table 6: fee_types
 CREATE TABLE fee_types (
     fee_type_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for fee type',
     fee_name VARCHAR(50) NOT NULL COMMENT 'Name of the fee',
@@ -64,7 +64,7 @@ CREATE TABLE fee_types (
         min_fee <= max_fee
     )
 );
-
+-- Table 7: transaction_fees
 CREATE TABLE transaction_fees (
     transaction_fee_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Unique ID for transaction-fee record',
     transaction_id INT NOT NULL COMMENT 'References transaction',
@@ -118,3 +118,15 @@ INSERT INTO system_logs (log_id, log_type, message) VALUES
 (3, 'INFO', 'User John Doe created'),
 (4, 'WARNING', 'Transaction TXN003 took longer than expected'),
 (5, 'INFO', 'Database backup completed');
+
+-- Add sample fee types
+INSERT INTO fee_types (fee_type_id, fee_name, fee_code, calculation_method, fee_value, min_fee, max_fee, is_active) VALUES
+(1, 'Standard Transfer Fee', 'STF001', 'percentage', 1.5, 0.50, 15.00, TRUE),
+(2, 'Airtime Purchase Fee', 'APF002', 'fixed', 0.75, NULL, NULL, TRUE),
+(3, 'Bill Payment Fee', 'BPF003', 'tiered', 2.0, 1.00, 20.00, TRUE);
+
+-- Add sample transaction fees
+INSERT INTO transaction_fees (transaction_fee_id, transaction_id, fee_type_id, fee_amount) VALUES
+(1, 2, 1, 30.00),
+(2, 3, 2, 0.75),
+(3, 4, 3, 15.00);
