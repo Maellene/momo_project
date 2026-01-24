@@ -1,0 +1,51 @@
+{
+  "transaction": {
+    "transaction_id": 1,
+    "txn_code": "TXN001",
+    "amount": 6000.00,
+    "message": "Received money",
+    "transaction_date": "2024-01-15 10:00:00",
+
+    "category": {
+      "category_id": 1,
+      "category_name": "Received Money",
+      "category_type": "Income",
+      "description": "Incoming funds to wallet"
+    },
+
+    "participants": [
+      {
+        "user_id": 1,
+        "full_name": "NZIZA Oliver",
+        "phone_number": "+250788123456",
+        "role": "sender"
+      },
+      {
+        "user_id": 2,
+        "full_name": "UWARIYA Jane",
+        "phone_number": "+250789654321",
+        "role": "receiver"
+      }
+    ],
+
+    "fees": [
+      {
+        "transaction_fee_id": 1,
+        "fee_type": {
+          "fee_type_id": 1,
+          "fee_name": "Transaction Fee",
+          "fee_code": "TXN_FEE",
+          "calculation_method": "FIXED"
+        },
+        "fee_amount": 0.00,
+        "applied_at": "2024-01-15 10:00:01"
+      }
+    ],
+
+    "system_log": {
+      "id": 1,
+      "message": "Transaction processed successfully",
+      "date": "2024-01-15 10:00:02"
+    }
+  }
+}
