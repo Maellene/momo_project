@@ -25,7 +25,9 @@ CREATE TABLE transactions (
     transaction_date DATETIME NOT NULL COMMENT 'Date and time of transaction',
     message TEXT COMMENT 'Optional transaction message',
     FOREIGN KEY (category_id) REFERENCES categories(category_id),
-    CONSTRAINT chk_amount_positive CHECK (amount >= 0)
+    CONSTRAINT chk_amount_positive CHECK (amount >= 0),
+    INDEX idx_txn_code (txn_code),
+    INDEX idx_category_id (category_id)
 );
 
 -- Table 4: user_transactions
@@ -35,7 +37,9 @@ CREATE TABLE user_transactions (
     transaction_id INT COMMENT 'References transaction',
     role ENUM('sender', 'receiver') NOT NULL COMMENT 'Role in transaction: sender/receiver',
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
+    FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_transaction_id (transaction_id)
 );
 
 -- Table 5: system_logs
@@ -62,7 +66,8 @@ CREATE TABLE fee_types (
         min_fee IS NULL OR 
         max_fee IS NULL OR 
         min_fee <= max_fee
-    )
+    ),
+    INDEX idx_fee_code (fee_code)
 );
 -- Table 7: transaction_fees
 CREATE TABLE transaction_fees (
@@ -79,6 +84,8 @@ CREATE TABLE transaction_fees (
     
     CONSTRAINT chk_fee_amount_positive CHECK (fee_amount >= 0),
     UNIQUE KEY uk_transaction_fee_type (transaction_id, fee_type_id),
+    INDEX idx_transaction_id (transaction_id),
+    INDEX idx_fee_type_id (fee_type_id)
 );
 
 -- Add sample users 
