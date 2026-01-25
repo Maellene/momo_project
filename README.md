@@ -42,3 +42,275 @@ https://github.com/Maellene/momo_project/blob/main/webcore%20momo%20project.png
 ## Scrum Board :
 We are using a Scrum board to manage tasks and collaborate using Agile practices.                                                                                                                                                 
 https://github.com/users/Maellene/projects/3/views/1
+---
+
+## Week 2: Database Design & Implementation
+
+### Entity Relationship Diagram (ERD)
+
+Our database consists of **7 tables** designed to handle MoMo SMS transaction processing with proper normalization and referential integrity.
+
+![Database ERD](https://github.com/Maellene/momo_project/blob/main/docs/erd_diagram.pdf)
+
+**Core Tables:**
+- **users** - Customer accounts and profiles
+- **transactions** - Main transaction records
+- **categories** - Transaction type classification
+- **user_transactions** - User participation mapping (sender/receiver roles)
+
+**Supporting Tables:**
+- **fee_types** - Fee definitions and calculation rules
+- **transaction_fees** - Junction table resolving M:N relationship between transactions and fees
+- **system_logs** - ETL process tracking and monitoring
+
+
+---
+
+### Database Schema Overview
+![Database Design Document](https://github.com/Maellene/momo_project/blob/main/docs/Database%20Design%20Document%20WebCores.pdf)
+
+#### Key Relationships
+
+1. **categories → transactions** (1:M)
+   - One category can have many transactions
+   - Each transaction belongs to one category
+
+2. **users → user_transactions** (1:M)
+   - One user can participate in many transactions
+   - Each participation record belongs to one user
+
+3. **transactions → user_transactions** (1:M)
+   - One transaction can have multiple participants (sender + receiver)
+   - Each participation record belongs to one transaction
+
+4. **transactions ↔ fee_types** (M:N) ⭐ **Many-to-Many Relationship**
+   - One transaction can have multiple fees (transaction fee + tax + service charge)
+   - One fee type can apply to multiple transactions
+   - Resolved through **transaction_fees** junction table
+
+5. **system_logs** (Standalone)
+   - Independent logging table for ETL monitoring
+
+#### Database Features
+
+✅ **Many-to-Many Relationship:** Transactions ↔ Fee Types (via transaction_fees junction table)  
+✅ **Referential Integrity:** Foreign key constraints prevent orphaned records  
+✅ **Data Validation:** CHECK constraints ensure positive amounts and valid balances  
+✅ **Duplicate Prevention:** UNIQUE constraints on phone numbers and transaction codes  
+✅ **Performance Optimization:** Strategic indexes on frequently queried columns  
+✅ **Audit Trail:** Timestamp tracking on all tables  
+✅ **Controlled Deletion:** RESTRICT for critical data, CASCADE for dependent details
+
+---
+
+### Database Setup
+
+see [View datadase Query we used](https://github.com/Maellene/momo_project/blob/main/database/database_setup.sql) for more information
+
+#### Prerequisites
+- MySQL 8.0 or higher
+- Python 3.8+
+- pip (Python package manager)
+
+#### Installation Steps
+
+1. **Install MySQL** (if not already installed)
+```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install mysql-server
+
+   # macOS
+   brew install mysql
+   brew services start mysql
+```
+
+2. **Run Database Setup Script**
+```bash
+   mysql -u momo_user -p momo_db < database/database_setup.sql
+```
+
+3. **Verify Installation**
+```bash
+   mysql -u momo_user -p momo_db -e "SHOW TABLES;"
+```
+
+   Expected output: 7 tables (users, categories, transactions, user_transactions, fee_types, transaction_fees, system_logs)
+
+---
+
+### JSON Data Examples
+
+Our database data can be serialized to JSON for API responses:
+
+#### Simple User Object
+```json
+{
+  "user_id": 1,
+  "phone_number": "+250788123456",
+  "full_name": "KAMANZI Ghod",
+  "email": "kamanzi@example.com",
+  "account_status": "active",
+  "registration_date": "2023-06-10T08:30:00Z"
+}
+```
+
+#### Complete Transaction with Relationships (M:N Demonstrated)
+```json
+{
+  "transaction_id": 1,
+  "txn_code": "TXN001",
+  "amount": 5000.00,
+  "transaction_date": "2024-01-15T10:00:00Z",
+  "status": "completed",
+  "category": {
+    "category_name": "Received Money",
+    "category_type": "Income"
+  },
+  "sender": {
+    "full_name": "UWIMANA Jane",
+    "phone_number": "+250789654321"
+  },
+  "receiver": {
+    "full_name": "KAMANZI Ghod",
+    "phone_number": "+250788123456"
+  },
+  "fees": [
+    {
+      "fee_name": "Transaction Fee",
+      "fee_amount": 75.00
+    },
+    {
+      "fee_name": "Tax",
+      "fee_amount": 25.00
+    }
+  ],
+  "total_fees": 100.00,
+  "total_cost": 5100.00
+}
+```
+
+See [examples/json_schemas.json](https://github.com/Maellene/momo_project/blob/main/examples/json_schemas.json) for complete examples.
+
+---
+
+
+## Development Workflow
+
+### Getting Started
+
+1. **Clone the repository**
+```bash
+   git clone https://github.com/Maellene/momo_project.git
+   cd momo_project
+```
+
+## Team Collaboration
+
+### Scrum Board
+We manage our project using Agile Scrum practices.
+
+📋 **Scrum Board:** [View on GitHub Projects](https://github.com/users/Maellene/projects/3/views/1)
+
+
+## Week 2 Deliverables
+
+###  Completed
+- [x] Entity Relationship Diagram (ERD) with 7 tables
+- [x] Many-to-Many relationship resolved with junction table
+- [x] Complete MySQL database schema with constraints
+- [x] Sample data (5+ records per table)
+- [x] JSON schema examples
+- [x] Design rationale documentation (250-300 words)
+- [x] Complete data dictionary
+- [x] Sample queries demonstrating functionality
+- [x] Security constraint testing with screenshots
+- [x] Updated README with database documentation
+- [x] Team participation sheet
+- [x] Database Design Document (PDF)
+
+### Repository Structure
+```
+✓ docs/erd_diagram.png
+✓ docs/Database Design Document WebCores.pdf
+✓ database/database_setup.sql
+✓ examples/json_schemas.json
+✓ README.md (this file)
+```
+
+---
+
+## Documentation
+
+see [Database Design Document](https://github.com/Maellene/momo_project/blob/main/docs/Database%20Design%20Document%20WebCores.pdf) for more information
+
+### Key Documents
+- **ERD Diagram:** [docs/erd_diagram.png](docs/erd_diagram.png)
+- **Sample Queries:** [database/sample_queries.sql](https://github.com/Maellene/momo_project/blob/main/docs/Database%20Design%20Document%20WebCores.pdf)
+- **JSON Examples:** [examples/json_schemas.json](examples/json_schemas.json)
+- **AI Usage Log:** [docs/ai_usage_log.md](https://github.com/Maellene/momo_project/blob/main/examples/json_schemas.json)
+
+### Database Design Highlights
+
+**Many-to-Many Relationship:**
+Transactions can have multiple fees, and fee types can apply to multiple transactions. This M:N relationship is resolved through the `transaction_fees` junction table, allowing flexible fee structures while maintaining data integrity.
+
+**Security Features:**
+- Foreign key constraints prevent orphaned records
+- CHECK constraints enforce business rules (positive amounts)
+- UNIQUE constraints prevent duplicates
+- CASCADE/RESTRICT rules control deletion behavior
+
+**Performance:**
+- Strategic indexes on frequently queried columns
+- Composite indexes for common query patterns
+- Proper data types (DECIMAL for money, DATETIME for timestamps)
+
+---
+
+## Future Enhancements
+
+### Planned Features
+-  Real-time transaction processing
+-  Advanced analytics dashboard
+-  Mobile app integration
+-  Multi-currency support
+-  Machine learning for fraud detection
+-  Automated report generation
+-  Export functionality (PDF, Excel)
+-  User authentication system
+
+---
+
+## AI Usage Transparency
+
+### Policy Compliance
+
+Our team has maintained full transparency regarding AI tool usage during this project. We have adhered to all permitted and prohibited use guidelines.
+
+### Permitted Uses (What We Did)
+- Grammar and spelling checks in documentation  
+- SQL syntax verification for MySQL 8.0 compatibility  
+- Research on MySQL indexing and constraint best practices  
+- Formatting assistance for technical documentation 
+
+### Prohibited Uses (What We Did NOT Do)
+- AI did not generate our ERD design  
+- AI did not create our database schema or relationships  
+- AI did not write our business logic  
+- AI did not create our design rationale or technical explanations
+
+**All core design work - including ERD structure, table relationships, Many-to-Many resolution, constraint logic, and design rationale - was created by our team through collaborative analysis of MoMo transaction requirements.**
+
+### Verification of Original Work
+
+Our database design reflects genuine team understanding:
+- ERD created in collaborative team session (January 22, 2-4 PM)
+- Many-to-Many relationship identified through business analysis
+- Junction table solution designed by team
+- All SQL schema and constraints written by team members
+- Design rationale documents our actual decision-making process
+
+Each team member can individually explain our design decisions, demonstrating authentic understanding rather than AI-generated solutions.
+
+---
