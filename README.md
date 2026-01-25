@@ -46,6 +46,8 @@ https://github.com/users/Maellene/projects/3/views/1
 
 ## Week 2: Database Design & Implementation
 
+**Team participation sheet:** [https://docs.google.com/spreadsheets/d/1v9yugnSn8R4a8Q26f_xiZw5wrP991b7TCrbwRVfN7pU/edit?usp=sharing]
+
 ### Entity Relationship Diagram (ERD)
 
 Our database consists of **7 tables** designed to handle MoMo SMS transaction processing with proper normalization and referential integrity.
@@ -83,7 +85,7 @@ Our database consists of **7 tables** designed to handle MoMo SMS transaction pr
    - One transaction can have multiple participants (sender + receiver)
    - Each participation record belongs to one transaction
 
-4. **transactions ↔ fee_types** (M:N) ⭐ **Many-to-Many Relationship**
+4. **transactions ↔ fee_types** (M:N)  **Many-to-Many Relationship**
    - One transaction can have multiple fees (transaction fee + tax + service charge)
    - One fee type can apply to multiple transactions
    - Resolved through **transaction_fees** junction table
@@ -93,13 +95,13 @@ Our database consists of **7 tables** designed to handle MoMo SMS transaction pr
 
 #### Database Features
 
-✅ **Many-to-Many Relationship:** Transactions ↔ Fee Types (via transaction_fees junction table)  
-✅ **Referential Integrity:** Foreign key constraints prevent orphaned records  
-✅ **Data Validation:** CHECK constraints ensure positive amounts and valid balances  
-✅ **Duplicate Prevention:** UNIQUE constraints on phone numbers and transaction codes  
-✅ **Performance Optimization:** Strategic indexes on frequently queried columns  
-✅ **Audit Trail:** Timestamp tracking on all tables  
-✅ **Controlled Deletion:** RESTRICT for critical data, CASCADE for dependent details
+ **Many-to-Many Relationship:** Transactions ↔ Fee Types (via transaction_fees junction table)  
+ **Referential Integrity:** Foreign key constraints prevent orphaned records  
+ **Data Validation:** CHECK constraints ensure positive amounts and valid balances  
+ **Duplicate Prevention:** UNIQUE constraints on phone numbers and transaction codes  
+ **Performance Optimization:** Strategic indexes on frequently queried columns  
+ **Audit Trail:** Timestamp tracking on all tables  
+ **Controlled Deletion:** RESTRICT for critical data, CASCADE for dependent details
 
 ---
 
@@ -210,7 +212,7 @@ See [examples/json_schemas.json](https://github.com/Maellene/momo_project/blob/m
 ### Scrum Board
 We manage our project using Agile Scrum practices.
 
-📋 **Scrum Board:** [View on GitHub Projects](https://github.com/users/Maellene/projects/3/views/1)
+ **Scrum Board:** [View on GitHub Projects](https://github.com/users/Maellene/projects/3/views/1)
 
 
 ## Week 2 Deliverables
@@ -248,6 +250,7 @@ see [Database Design Document](https://github.com/Maellene/momo_project/blob/mai
 - **ERD Diagram:** [docs/erd_diagram.png](docs/erd_diagram.png)
 - **Sample Queries:** [database/sample_queries.sql](https://github.com/Maellene/momo_project/blob/main/docs/Database%20Design%20Document%20WebCores.pdf)
 - **JSON Examples:** [examples/json_schemas.json](examples/json_schemas.json)
+- **Team participation sheet:** [https://docs.google.com/spreadsheets/d/1v9yugnSn8R4a8Q26f_xiZw5wrP991b7TCrbwRVfN7pU/edit?usp=sharing] 
 - **AI Usage Log:** [docs/ai_usage_log.md](https://github.com/Maellene/momo_project/blob/main/examples/json_schemas.json)
 
 ### Database Design Highlights
@@ -307,7 +310,7 @@ Our team has maintained full transparency regarding AI tool usage during this pr
 Our database design reflects genuine team understanding:
 - ERD created in collaborative team session (January 22, 2-4 PM)
 - Many-to-Many relationship identified through business analysis
-- Junction table solution designed by team
+- Junction table solution designed by the team
 - All SQL schema and constraints written by team members
 - Design rationale documents our actual decision-making process
 
