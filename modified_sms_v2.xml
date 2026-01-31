@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sms_records>
+    <transaction id="1">
+        <type>DEPOSIT</type>
+        <amount>50000</amount>
+        <sender>250788123456</sender>
+        <receiver>MOMO_AGENT_001</receiver>
+        <timestamp>2024-01-15T10:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>500</fee>
+    </transaction>
+    <transaction id="2">
+        <type>WITHDRAWAL</type>
+        <amount>30000</amount>
+        <sender>250788234567</sender>
+        <receiver>MOMO_AGENT_002</receiver>
+        <timestamp>2024-01-15T11:45:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>300</fee>
+    </transaction>
+    <transaction id="3">
+        <type>TRANSFER</type>
+        <amount>15000</amount>
+        <sender>250788123456</sender>
+        <receiver>250788345678</receiver>
+        <timestamp>2024-01-15T14:20:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>150</fee>
+    </transaction>
+    <transaction id="4">
+        <type>DEPOSIT</type>
+        <amount>100000</amount>
+        <sender>250788456789</sender>
+        <receiver>MOMO_AGENT_003</receiver>
+        <timestamp>2024-01-16T09:15:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>1000</fee>
+    </transaction>
+    <transaction id="5">
+        <type>PAYMENT</type>
+        <amount>25000</amount>
+        <sender>250788567890</sender>
+        <receiver>MERCHANT_001</receiver>
+        <timestamp>2024-01-16T10:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>250</fee>
+    </transaction>
+    <transaction id="6">
+        <type>TRANSFER</type>
+        <amount>45000</amount>
+        <sender>250788678901</sender>
+        <receiver>250788789012</receiver>
+        <timestamp>2024-01-16T12:00:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>450</fee>
+    </transaction>
+    <transaction id="7">
+        <type>WITHDRAWAL</type>
+        <amount>60000</amount>
+        <sender>250788890123</sender>
+        <receiver>MOMO_AGENT_001</receiver>
+        <timestamp>2024-01-16T15:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>600</fee>
+    </transaction>
+    <transaction id="8">
+        <type>DEPOSIT</type>
+        <amount>75000</amount>
+        <sender>250788901234</sender>
+        <receiver>MOMO_AGENT_002</receiver>
+        <timestamp>2024-01-17T08:45:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>750</fee>
+    </transaction>
+    <transaction id="9">
+        <type>PAYMENT</type>
+        <amount>35000</amount>
+        <sender>250788012345</sender>
+        <receiver>MERCHANT_002</receiver>
+        <timestamp>2024-01-17T11:20:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>350</fee>
+    </transaction>
+    <transaction id="10">
+        <type>TRANSFER</type>
+        <amount>20000</amount>
+        <sender>250788123456</sender>
+        <receiver>250788234567</receiver>
+        <timestamp>2024-01-17T13:15:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>200</fee>
+    </transaction>
+    <transaction id="11">
+        <type>DEPOSIT</type>
+        <amount>90000</amount>
+        <sender>250788345678</sender>
+        <receiver>MOMO_AGENT_003</receiver>
+        <timestamp>2024-01-17T16:00:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>900</fee>
+    </transaction>
+    <transaction id="12">
+        <type>WITHDRAWAL</type>
+        <amount>40000</amount>
+        <sender>250788456789</sender>
+        <receiver>MOMO_AGENT_001</receiver>
+        <timestamp>2024-01-18T09:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>400</fee>
+    </transaction>
+    <transaction id="13">
+        <type>PAYMENT</type>
+        <amount>55000</amount>
+        <sender>250788567890</sender>
+        <receiver>MERCHANT_003</receiver>
+        <timestamp>2024-01-18T10:45:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>550</fee>
+    </transaction>
+    <transaction id="14">
+        <type>TRANSFER</type>
+        <amount>28000</amount>
+        <sender>250788678901</sender>
+        <receiver>250788789012</receiver>
+        <timestamp>2024-01-18T12:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>280</fee>
+    </transaction>
+    <transaction id="15">
+        <type>DEPOSIT</type>
+        <amount>65000</amount>
+        <sender>250788890123</sender>
+        <receiver>MOMO_AGENT_002</receiver>
+        <timestamp>2024-01-18T14:15:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>650</fee>
+    </transaction>
+    <transaction id="16">
+        <type>WITHDRAWAL</type>
+        <amount>50000</amount>
+        <sender>250788901234</sender>
+        <receiver>MOMO_AGENT_003</receiver>
+        <timestamp>2024-01-19T08:00:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>500</fee>
+    </transaction>
+    <transaction id="17">
+        <type>PAYMENT</type>
+        <amount>42000</amount>
+        <sender>250788012345</sender>
+        <receiver>MERCHANT_001</receiver>
+        <timestamp>2024-01-19T10:20:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>420</fee>
+    </transaction>
+    <transaction id="18">
+        <type>TRANSFER</type>
+        <amount>33000</amount>
+        <sender>250788123456</sender>
+        <receiver>250788345678</receiver>
+        <timestamp>2024-01-19T12:45:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>330</fee>
+    </transaction>
+    <transaction id="19">
+        <type>DEPOSIT</type>
+        <amount>85000</amount>
+        <sender>250788234567</sender>
+        <receiver>MOMO_AGENT_001</receiver>
+        <timestamp>2024-01-19T15:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>850</fee>
+    </transaction>
+    <transaction id="20">
+        <type>WITHDRAWAL</type>
+        <amount>48000</amount>
+        <sender>250788345678</sender>
+        <receiver>MOMO_AGENT_002</receiver>
+        <timestamp>2024-01-20T09:15:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>480</fee>
+    </transaction>
+    <transaction id="21">
+        <type>PAYMENT</type>
+        <amount>62000</amount>
+        <sender>250788456789</sender>
+        <receiver>MERCHANT_002</receiver>
+        <timestamp>2024-01-20T11:00:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>620</fee>
+    </transaction>
+    <transaction id="22">
+        <type>TRANSFER</type>
+        <amount>38000</amount>
+        <sender>250788567890</sender>
+        <receiver>250788678901</receiver>
+        <timestamp>2024-01-20T13:30:00</timestamp>
+        <status>COMPLETED</status>
+        <fee>380</fee>
+    </transaction>
+</sms_records>
