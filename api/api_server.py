@@ -1,7 +1,6 @@
 """
 MoMo SMS REST API Server
 Handles GET requests for transaction data
-Author: Person 2
 """
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
