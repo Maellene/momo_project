@@ -456,6 +456,9 @@ cd dsa
 python search_comparison.py
 ```
 ![search_comparison1](https://github.com/user-attachments/assets/8bf6061f-d57f-4dc0-a677-6c039a380fe1)
+![search_comparison2](https://github.com/user-attachments/assets/01bb107b-47fb-47bf-9c95-cbee81e5600e)
+![search_comparision3](https://github.com/user-attachments/assets/205048d0-f120-484a-a3f7-277d269e9662)
+![search_comparision4](https://github.com/user-attachments/assets/f054a865-bfd1-46d3-bdd5-1b40efd11ba2)
 
 ### Data Structures & Algorithms
 
