@@ -320,7 +320,7 @@ Each team member can individually explain our design decisions, demonstrating au
 
 ## Week 3: REST API Development & Security
 
-**Team participation sheet:** [ADD YOUR LINK HERE]
+**Team participation sheet:** [https://docs.google.com/spreadsheets/d/1zO08VvjfJKMarj71JbhSs9W7tdYTCmh-gheu2CMvzaQ/edit?usp=sharing]
 
 ### MoMo SMS REST API
 
