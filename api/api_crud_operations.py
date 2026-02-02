@@ -1,7 +1,6 @@
 """
 API CRUD Operations - POST, PUT, DELETE
 Handles create, update, and delete operations
-Author: Person 3
 """
 
 import json
