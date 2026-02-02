@@ -359,7 +359,7 @@ A secure REST API for managing mobile money SMS transaction data, built with Pyt
 
 
 **Team Documents:**
-- [https://docs.google.com/spreadsheets/d/1zO08VvjfJKMarj71JbhSs9W7tdYTCmh-gheu2CMvzaQ/edit?usp=sharing](TEAM_PARTICIPATION) - Team contribution template
+- [TEAM_PARTICIPATION](TEAM_PARTICIPATIONhttps://docs.google.com/spreadsheets/d/1zO08VvjfJKMarj71JbhSs9W7tdYTCmh-gheu2CMvzaQ/edit?usp=sharing) - Team contribution template
 
 **Data & Config:**
 - [modified_sms_v2.xml](modified_sms_v2.xml) - Sample SMS transaction data (22 records)
