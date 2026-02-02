@@ -348,10 +348,11 @@ A secure REST API for managing mobile money SMS transaction data, built with Pyt
 
 **Documentation:**
 - [docs/api_docs.md](docs/api_docs.md) - Complete API documentation
-- [SCREENSHOT_GUIDE.md](SCREENSHOT_GUIDE.md1) - Testing and screenshot instructions
+
 
 **Testing:**
 - [tests/api_tests.py](tests/api_tests.py) - Automated test suite (8 tests)
+- [SCREENSHOT of Test Cases](screenshots) - Testing and screenshot instructions
 
 **Reports:**
 - [MoMo_API_Project_Report.pdf](docs/MoMo_API_Project_Report.pdf) - Complete project report (PDF)
