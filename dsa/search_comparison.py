@@ -1,7 +1,6 @@
 """
 Data Structures & Algorithms - Search Comparison
 Implements and compares Linear Search vs Dictionary Lookup
-Author: Person 1
 """
 
 import time
