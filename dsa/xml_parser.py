@@ -1,7 +1,6 @@
 """
 XML Parser Module
 Parses modified_sms_v2.xml and converts SMS records to JSON format
-Author: Person 1
 """
 
 import xml.etree.ElementTree as ET
