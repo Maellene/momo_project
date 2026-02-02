@@ -454,16 +454,8 @@ python api_tests.py
 ```bash
 cd dsa
 python search_comparison.py
-![search_comparison1](https://github.com/user-attachments/assets/e554a3d3-3dcc-42ab-ad05-372fee7927e1)
-![search_comparison2](https://github.com/user-attachments/assets/a05539dc-af6b-4d3a-bd18-8fdfcf5fb498)
-![search_comparision3](https://github.com/user-attachments/assets/e6dc493b-d960-4ae2-984f-948073ec698e)
-![search_comparision4](https://github.com/user-attachments/assets/ce35c149-8aec-46d7-8dea-d888064282c9)
-
-
-
-
-
 ```
+![search_comparison1](https://github.com/user-attachments/assets/8bf6061f-d57f-4dc0-a677-6c039a380fe1)
 
 ### Data Structures & Algorithms
 
