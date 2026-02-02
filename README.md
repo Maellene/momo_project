@@ -348,17 +348,17 @@ A secure REST API for managing mobile money SMS transaction data, built with Pyt
 
 **Documentation:**
 - [docs/api_docs.md](docs/api_docs.md) - Complete API documentation
-- [SCREENSHOT_GUIDE.md](SCREENSHOT_GUIDE.md) - Testing and screenshot instructions
+- [SCREENSHOT_GUIDE.md](SCREENSHOT_GUIDE.md1) - Testing and screenshot instructions
 
 **Testing:**
 - [tests/api_tests.py](tests/api_tests.py) - Automated test suite (8 tests)
 
 **Reports:**
-- [MoMo_API_Project_Report.pdf](docs/MoMo_API_Project_Report (1).pdf) - Complete project report (PDF)
+- [docs/MoMo_API_Project_Report (1).pdf](MoMo_API_Project_Report.pdf) - Complete project report (PDF)
 
 
 **Team Documents:**
-- [TEAM_PARTICIPATION](https://docs.google.com/spreadsheets/d/1zO08VvjfJKMarj71JbhSs9W7tdYTCmh-gheu2CMvzaQ/edit?usp=sharing) - Team contribution template
+- [https://docs.google.com/spreadsheets/d/1zO08VvjfJKMarj71JbhSs9W7tdYTCmh-gheu2CMvzaQ/edit?usp=sharing](TEAM_PARTICIPATION) - Team contribution template
 
 **Data & Config:**
 - [modified_sms_v2.xml](modified_sms_v2.xml) - Sample SMS transaction data (22 records)
